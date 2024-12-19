@@ -1,1 +1,21 @@
 #!/usr/bin/env bash
+
+#Exit immediately if any command returns a non-zero status
+set -e
+
+#where random files will live
+OUTPUT_DIR="/tmp/s3-bash-scripts"
+
+#remove folderr if it already exists
+rm -r $OUTPUT_DIR
+
+# lets create output folder
+mkdir -p $OUTPUT_DIR
+
+
+for i in {1..10}; do
+  # Create a file with a random name and random content
+  echo "Random content for file $i" > "$OUTPUT_DIR/file_$RANDOM.txt"
+done 
+
+tree $OUTPUT_DIR        
