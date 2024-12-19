@@ -1,0 +1,24 @@
+tasks:
+  - init: |
+      # Install dependencies
+      sudo apt-get update
+      sudo apt-get install -y curl unzip
+
+      # Install AWS CLI
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+
+      # Clean up
+      rm -rf awscliv2.zip aws
+
+  - command: |
+      # This command will run every time the workspace starts.
+      # You can replace this with any other setup or command you'd like to run by default.
+      aws --version
+
+environment:
+  variables:
+    AWS_ACCESS_KEY_ID: "AKIATWBJ2PT3V4XTMXGY"
+    AWS_SECRET_ACCESS_KEY: "048ZD1/GEK8bowZ7FYbMs/PaPgCD9B1BqNl+rpaK"
+    #AWS_DEFAULT_REGION: "us-east-1"  # Adjust to your preferred region
