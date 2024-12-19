@@ -1,1 +1,9 @@
-#! usr/bin/env bash
+#!/usr/bin/env bash
+
+#Check fo bucket name
+if [ -z "$1" ]; then
+    echo "No bucket name provided. Please enter bucket name:"
+    exit 1
+fi
+
+aws s3api delete-bucket --bucket $1
