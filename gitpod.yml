@@ -10,11 +10,11 @@ tasks:
       sudo ./aws/install
 
       # Clean up
-      rm -rf awscliv2.zip aws
+      rm -rf awscliv2.zip
       
   - command: |
       # Verify AWS CLI installation
-      # aws --version
+      aws --version
       
 environment:
   variables:
