@@ -14,7 +14,7 @@ tasks:
       
   - command: |
       # Verify AWS CLI installation
-      aws --version
+      # aws --version
       
 environment:
   variables:
