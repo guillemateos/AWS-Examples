@@ -1,18 +1,17 @@
+image: gitpod/workspace-full
+
 tasks:
   - init: |
-      # Install AWS CLI and tree
-      sudo apt-get update
-      sudo apt-get install -y awscli
-      sudo apt-get install -y tree
+      # Install AWS CLI for Windows x64
+      curl "https://awscli.amazonaws.com/awscli-exe-windows-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      ./aws/install
 
-      # Set AWS credentials directly in AWS CLI if available as environment variables
-      if [[ -n "$AWS_ACCESS_KEY_ID" ]] && [[ -n "$AWS_SECRET_ACCESS_KEY" ]]; then
-        aws configure set aws_access_key_id "$AWS_ACCESS_KEY_ID"
-        aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
-        aws configure set region "us-east-1"  # Or use your preferred AWS region
-      fi
+      # Install tree command
+      choco install tree
   - command: |
-      echo "AWS CLI and tree installed."
+      # Optionally, verify installations
+      aws --version
       tree --version
 
 # Setting environment variables (ensure these are available in your Gitpod workspace)
